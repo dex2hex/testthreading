@@ -1,5 +1,6 @@
 from PySide2.QtCore import QObject, Signal, Slot
 from util import logthread
+import time
 
 
 class Worker(QObject):
@@ -36,3 +37,6 @@ class Worker(QObject):
         count = 0
         while self.continueWork is True:
             count += 1
+            
+            # https://bugreports.qt.io/browse/PYSIDE-803?focusedCommentId=424945&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-424945
+            # time.sleep(0)
